@@ -1,0 +1,24 @@
+#footer-id{
+    background-color: rgb(20, 33, 41);
+    height: 100%;
+}
+.container-fluid{
+    background-color: rgb(20, 33, 41);
+}
+#footer-div-id{
+    color: rgb(255, 255, 255);
+    margin-top: 50px;
+    font-size: 15px;
+}
+
+#copy-link{
+    color: rgb(169, 255, 82);
+}
+
+#quotes-div-id{
+    color:white;
+}
+
+#advices-div-id{
+    color:white;
+}

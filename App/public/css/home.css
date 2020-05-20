@@ -1,0 +1,14 @@
+#home-page-title{
+    position: absolute;
+    font-size: 50px;
+    margin-left: 42%;
+}
+.home-page-content-div{
+    text-align: center;
+    margin-top: -2%;
+}
+
+#img-guitar{
+    width: 100%;
+    height: 100%;
+}
