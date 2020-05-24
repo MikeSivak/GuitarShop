@@ -1,0 +1,73 @@
+<head>
+    <link rel="stylesheet" href="/css/guitar.css" />
+</head>
+
+<body>
+    <div id="guitars-view-div">
+        <h2 id="guitars-view-title">{{title}}</h2>
+        <div id='guitars-form'>
+            <div id='guitars-items-div'>
+                <ul>
+                    {{#each guitars}}
+                    <li>
+                        <div onclick="show_hide({{this.id}})" id="guitar-item" class="{{this.id}}" type="button"
+                            name="guitar-item">
+                            <label id="lbl-manuf">Manufacture: {{'manufacturer.title'}}</label>
+                            <label id="lbl-model">Model: {{this.model}}</label>
+                            <label id="lbl-gtype">Guitar type: {{'guitar_body_type.guitar_type.title'}}</label>
+                            <label id="lbl-gbody_type">Guitar body type: {{'guitar_body_type.title'}}</label>
+                            <label id="lbl-country">Country: {{'manufacturer.country.title'}}</label>
+                            <label id="lbl-price">Price: {{this.price}}</label>
+                            <label id="lbl-quantity">Quantity: {{this.quantity}}</label>
+                        </div>
+                        <div id='{{this.id}}' class="collapse-div" style="display:none;">
+                            <form method="POST" class="collapse-form">
+                                <div id="col-form-div1">
+                                    <input id="hidden-id-guitar" name="id" value="{{this.id}}" type="hidden">
+                                    <input id="manuf" name="manuf" placeholder="Manufacturer"
+                                        value="{{'manufacturer.title'}}" type="text" title="Manufacturer">
+                                    <br>
+                                    <input id="model" name="model" placeholder="Model" value="{{this.model}}"
+                                        type="text" title="Model">
+                                </div>
+                                <div id="col-form-div2">
+                                    <input id="gtype" placeholder="Guitar type" name="gtype"
+                                        value="{{'guitar_body_type.guitar_type.title'}}" type="text"
+                                        title="Guitar type">
+                                    <br>
+                                    <input id="gbody_type" placeholder="Body type" name="gbody_type"
+                                        value="{{'guitar_body_type.title'}}" type="text" title="Body Type">
+                                </div>
+                                <div id="col-form-div3">
+                                    <input id="country" placeholder="Country" name="country"
+                                        value="{{'manufacturer.country.title'}}" type="text" title="Country">
+                                    <br>
+                                    <input id="price" placeholder="Price" name="price" value="{{this.price}}"
+                                        type="text" title="Price $">
+                                </div>
+                                <div id="col-form-div4">
+                                    <input id="quantity" placeholder="Quantity" name="quantity"
+                                        value="{{this.quantity}}" type="text" title="Quantity">
+                                </div>
+                                <div id="col-form-div5">
+                                    <input id="save_but" type="submit" value="Save" formaction="/guitars/save" />
+                                    <br>
+                                    <input id="delete_but" type="submit" value="Delete" formaction="/guitars/delete" />
+                                </div>
+                            </form>
+                        </div>
+
+                    </li>
+                    {{/each}}
+                </ul>
+
+            </div>
+            <form method="GET" id="addForm" action="/guitars/add">
+                <input id="add_but" type="submit" value="New Guitar" formaction="/guitars/add" />
+            </form>
+            <br>
+        </div>
+    </div>
+
+    <script src="/js/guitar.item.js"></script>
+</body>

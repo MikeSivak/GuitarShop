@@ -1,44 +1,50 @@
 <head>
-    <link rel="stylesheet" href="/css/users.css"/>
+    <link rel="stylesheet" href="/css/users.css" />
 </head>
+
 <body>
     <div id="users_view-div">
         <h2 id="users_view-title">Users List</h2>
-            <div id='users-form'>
-                <div id='users-items-div'>
-                    <ul>
-                        {{#each users}}
-                            <li>
-                            <input id="user-item" class="{{this.id}}" type="button" onclick="show_hide({{this.id}})" formaction="" name="user-item"
-                                value="{{this.first_name}} {{this.last_name}} {{this.phone}} {{this.email}} {{"role.role_name"}} "></input>
-                                    <div id='{{this.id}}' class="collapse-div" style="display:none;">
-                                        <form method="POST" class="collapse-form">
-                                            <div id="col-form-div1">
-                                                <input id="hidden-id-user" name="id" value="{{this.id}}" type="hidden">
-                                                <input id="first_name" name="fname" placeholder="First name" value="{{this.first_name}}" type="text">
-                                                    <br>
-                                                <input id="last_name" name="lname" placeholder="Last name" value="{{this.last_name}}" type="text">
-                                            </div>
-                                            <div id="col-form-div2">
-                                                <input id="phone" placeholder="Phone" name="phone" value="{{this.phone}}" type="text">
-                                                    <br>
-                                                <input id="email" placeholder="Email" name="email" value="{{this.email}}" type="email">
-                                            </div>
-                                            <div id="col-form-div3">
-                                                <input id="save_but" type="submit" value="Save" formaction="/users/save"/>
-                                                    <br>
-                                                <input id="delete_but" type="submit" value="Delete" formaction="/users/delete"/>
-                                            </div>
-                                        </form>
-                                    </div>
-                            </li>
-                        {{/each}}
-                    </ul>
-                </div>
-                
-                <br>
+        <div id='users-form'>
+            <div id='users-items-div'>
+                <ul>
+                    {{#each users}}
+                    <li>
+                        <input id="user-item" class="{{this.id}}" type="button" onclick="show_hide({{this.id}})"
+                            formaction="" name="user-item"
+                            value="{{this.first_name}} {{this.last_name}} {{this.phone}} {{this.email}} {{"role.role_name"}} "></input>
+                        <div id='{{this.id}}' class="collapse-div" style="display:none;">
+                            <form method="POST" class="collapse-form">
+                                <div id="col-form-div1">
+                                    <input id="hidden-id-user" name="id" value="{{this.id}}" type="hidden">
+                                    <input id="first_name" name="fname" placeholder="First name"
+                                        value="{{this.first_name}}" type="text">
+                                    <br>
+                                    <input id="last_name" name="lname" placeholder="Last name"
+                                        value="{{this.last_name}}" type="text">
+                                </div>
+                                <div id="col-form-div2">
+                                    <input id="phone" placeholder="Phone" name="phone" value="{{this.phone}}"
+                                        type="text">
+                                    <br>
+                                    <input id="email" placeholder="Email" name="email" value="{{this.email}}"
+                                        type="email">
+                                </div>
+                                <div id="col-form-div3">
+                                    <input id="save_but" type="submit" value="Save" formaction="/users/save" />
+                                    <br>
+                                    <input id="delete_but" type="submit" value="Delete" formaction="/users/delete" />
+                                </div>
+                            </form>
+                        </div>
+                    </li>
+                    {{/each}}
+                </ul>
             </div>
+
+            <br>
         </div>
-        
-        <script src="/js/user.item.js"></script>
+    </div>
+
+    <script src="/js/user.item.js"></script>
 </body>

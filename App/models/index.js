@@ -21,6 +21,10 @@ db.sequelize = sequelize;
 
 db.users = require("./user.model.js")(sequelize, Sequelize);
 db.roles = require("./role.model.js")(sequelize, Sequelize);
-
+db.guitars = require("./guitar.model")(sequelize, Sequelize);
+db.countries = require("./country.model")(sequelize,Sequelize);
+db.manufacturers = require("./manufacturer.model")(sequelize,Sequelize);
+db.guitar_body_types = require("./guitar_body_type.model")(sequelize,Sequelize);
+db.guitar_types = require("./guitar_type.model")(sequelize,Sequelize);
 
 module.exports = db;

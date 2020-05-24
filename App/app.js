@@ -7,6 +7,8 @@ db.sequelize.sync();
 const user_router = require('./routes/user.route.js');
 const login_router = require('./routes/login.route.js');
 const registration_router = require('./routes/registration.route.js');
+const guitar_router = require('./routes/guitar.route.js');
+const content_router = require('./routes/content.route.js');
 const path = require('path');
 var exphbs  = require('express-handlebars');
 var hbs = require('hbs');
@@ -49,11 +51,16 @@ app.get('/', (req,res)=>{
     res.render("home");
 });
 
+app.use('/guitars', guitar_router);
+
+app.use('/content', content_router);
+
 app.post('/registration', registration_router);
 
 app.get('/registration', (req,res)=>{
     res.render("registration");
-})
+});
+
 
 app.use(function(req,res,next){
     res.status(404).send("Not Found");

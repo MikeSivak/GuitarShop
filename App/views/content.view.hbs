@@ -1,0 +1,33 @@
+<head>
+    <link rel="stylesheet" href="/css/content.css" />
+</head>
+
+<body>
+    <div id="content-view-div">
+        <h2 id="content-view-title">{{title}}</h2>
+        <div id='content-form'>
+            <div id='content-items-div'>
+                <ul>
+                    {{#each content}}
+                    <li>
+                        <div onclick="show_hide({{this.id}})" id="content-item" class="{{this.id}}" type="button"
+                            name="content-item">
+                            <label id="lbl-manuf">Manufacture: {{'manufacturer.title'}}</label>
+                            <label id="lbl-model">Model: {{this.model}}</label>
+                            <label id="lbl-gtype">content type: {{'content_body_type.content_type.title'}}</label>
+                            <label id="lbl-gbody_type">content body type: {{'content_body_type.title'}}</label>
+                            <label id="lbl-country">Country: {{'manufacturer.country.title'}}</label>
+                            <label id="lbl-price">Price: {{this.price}}</label>
+                            <label id="lbl-quantity">Quantity: {{this.quantity}}</label>
+                        </div>
+                    </li>
+                    {{/each}}
+                </ul>
+
+            </div>
+            <br>
+        </div>
+    </div>
+
+    <script src="/js/content.item.js"></script>
+</body>

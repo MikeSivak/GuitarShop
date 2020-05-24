@@ -8,8 +8,7 @@ exports.registrateUsers = (req,res)=>{
     let fname = req.body.fname;
     let lname = req.body.lname;
     let phone = req.body.phone;
-
-    console.log(email + '|' + password + '|' + fname + '|' + lname + '|' + phone);
+    
     try{
         User
         .create({

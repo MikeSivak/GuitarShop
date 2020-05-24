@@ -1,0 +1,75 @@
+#div-form{
+    text-align:center;
+}
+
+#add-form{
+    border-radius:10px;
+    margin:0px auto;
+    padding-top:30px;
+    background-color: rgb(20, 33, 41);
+    width:400px;
+    height:500px;
+}
+
+#action-label{
+    font-size:28px;
+    font-family:calibri;
+    color: white;
+}
+
+#manuf-field{
+    border-style:none;
+    text-align:center;
+    height:35px;
+    width: 200px;
+    border-radius:3px;
+    margin-top: 30px;
+}
+
+#model-field{
+    border-style:none;
+    text-align:center;
+    height:35px;
+    width: 200px;
+    border-radius:3px;
+    margin-top: 20px;
+}
+
+#gbody-field{
+    border-style:none;
+    text-align:center;
+    height:35px;
+    width: 200px;
+    border-radius:3px;
+    margin-top: 20px;
+}
+
+#quantity-field{
+    border-style:none;
+    text-align:center;
+    height:35px;
+    width: 200px;
+    border-radius:3px;
+    margin-top: 20px;
+}
+
+#price-field{
+    border-style:none;
+    text-align:center;
+    height:35px;
+    width: 200px;
+    border-radius:3px;
+    margin-top: 20px;
+}
+
+  
+#send-butt{
+    border-style:none;
+    width:80px;
+    height:30px;
+    margin-top:10px;
+    background-color:darkcyan;
+    border-radius:8px;
+    margin-top: 60px;
+    color: black;
+}
