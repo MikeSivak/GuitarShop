@@ -1,0 +1,72 @@
+<head>
+    <link rel="stylesheet" href="/css/descriptGuitar.css" />
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+
+<body>
+
+
+    <!--<div id="content-view-div">
+        <h2 id="content-view-title">{{title}}</h2>
+        <div id='content-form'>
+            <div id='content-items-div'>
+                <div id="content-item" type="button" name="content-item">
+                    {{#each content}}
+                        <label id="lbl-gtype">Guitar type: {{'guitar_body_type.guitar_type.title'}}</label>
+                        <label id="lbl-gbody_type">Guitar body type: {{'guitar_body_type.title'}}</label>
+                        <label id="lbl-country">Country: {{'manufacturer.country.title'}}</label>
+                        <label id="lbl-quantity">Quantity: {{this.quantity}}</label>
+                    {{/each}}
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>-->
+
+    {{#each content}}
+    <div id="main-content">
+        <div class="container" id="container">
+            <div class="row" id="row">
+                <div class="col-md-8">
+                    <div class="panel panel-default  panel--styled">
+                        <div class="panel-body">
+                            <div class="col-md-12 panelTop">
+                                <div class="col-md-4">
+                                    <img class="img-responsive" src="/images/guitar.jpg" alt="" />
+                                </div>
+                                <div class="col-md-8">
+                                    <h2>{{'manufacturer.title'}} (Model: {{this.model}})</h2>
+                                    <p>Lorem ipsum dolor sit amet, altera propriae iudicabit eos ne. Vel ut accusam
+                                        tacimates, prima oratio ius ea. Et duo alii verterem principes, te quo putent
+                                        melius
+                                        fabulas, ei scripta eligendi appareat duo.</p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-12 panelBottom">
+                                <div class="col-md-4 text-center">
+                                    <button class="btn btn-lg btn-add-to-cart"><span
+                                            class="glyphicon glyphicon-shopping-cart"></span> Make an order</button>
+                                </div>
+                                <div class="col-md-4 text-left">
+                                    <h3>Price: <span class="itemPrice">${{this.price}}</span></h3>
+                                </div>
+                                {{!-- <div class="col-md-4">
+                                    <div class="stars">
+                                        <div id="stars" class="starrr"></div>
+                                    </div>
+                                </div> --}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+
+    <script src="/js/content.item.js"></script>
+    <script src="/js/descript.guitar.js"></script>
+</body>

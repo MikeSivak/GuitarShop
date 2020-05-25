@@ -62,3 +62,27 @@ exports.getContent = async (req, res) => {
         })
     }
 }
+
+exports.getDescription = async (req, res) => {
+    try {
+        await Guitar
+            .findAll({where:{id:req.params.id},
+                include: [
+                    { model: Guitar_Body_Type, include: Guitar_Type },
+                    { model: Manufacturer, include: Country }
+                ],
+                raw: true
+            }
+            ).then(content => {
+                res.render('guitarDescript.view.hbs', {
+                    title: 'Guitars',
+                    content: content,
+                });
+                console.log(content);
+            })
+    } catch (e) {
+        res.status(500).json({
+            message: 'Something went wrong, try again: ' + e.message
+        })
+    }
+}
