@@ -1,5 +1,5 @@
 const db = require('../models');
-
+const Sequelize = require('sequelize');
 const Guitar = db.guitars;
 const Country = db.countries;
 const Guitar_Body_Type = db.guitar_body_types;
@@ -40,6 +40,10 @@ Guitar.belongsTo(Guitar_Body_Type, {
 });
 
 exports.getContent = async (req, res) => {
+
+    const manufacturers = await Manufacturer
+        .findAll({ raw: true });
+
     try {
         await Guitar
             .findAll({
@@ -53,8 +57,56 @@ exports.getContent = async (req, res) => {
                 res.render('content.view.hbs', {
                     title: 'Guitars',
                     content: content,
+                    manufacturers: manufacturers
                 });
                 console.log(content);
+                console.log(manufacturers);
+            })
+    } catch (e) {
+        res.status(500).json({
+            message: 'Something went wrong, try again: ' + e.message
+        })
+    }
+}
+
+exports.getGuitarsByCondition = async (req, res) => {
+
+    console.log('get value checkbox: ' + req.body.Martin);
+
+    // console.log('get value radio: ' + req.body.price_interval_1);
+
+    const manufacturers = await Manufacturer
+        .findAll({ raw: true });
+
+    let checked_manuf = manufacturers.filter(m => {
+        return req.body[m.title] !== undefined;
+    })
+    console.log("eeeeeeeeeeeeee:" + checked_manuf.map(el=>el.id));
+
+    try {
+        await Guitar
+            .findAll({
+                where: {
+                    id_manufacturer: {
+                        [Op.or]: checked_manuf.map(el => el.id)
+                    }
+                }
+            },{
+                include: [
+                    { model: Guitar_Body_Type, include: Guitar_Type },
+                    { model: Manufacturer, include: Country }
+                ],
+                raw: true,
+                // nest: true
+            },
+            ).then(content => {
+                res.render('content.view.hbs', {
+                    title: 'Guitars',
+                    content: content,
+                    manufacturers: manufacturers
+                });
+                console.log(content);
+                console.log(manufacturers);
             })
     } catch (e) {
         res.status(500).json({
@@ -66,7 +118,8 @@ exports.getContent = async (req, res) => {
 exports.getDescription = async (req, res) => {
     try {
         await Guitar
-            .findAll({where:{id:req.params.id},
+            .findAll({
+                where: { id: req.params.id },
                 include: [
                     { model: Guitar_Body_Type, include: Guitar_Type },
                     { model: Manufacturer, include: Country }

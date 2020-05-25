@@ -4,7 +4,7 @@ const content_router = Router();
 
 content_router.get('/', content_controller.getContent);             //get all contents
 content_router.get('/:id', content_controller.getDescription)
-
+content_router.post('/sort', content_controller.getGuitarsByCondition);
 
 // content_router.post('/:id', content_controller);
 

@@ -160,6 +160,25 @@ body{
     margin-left: -900px;
 } */
 
+#check-list{
+    position: fixed;
+    z-index:1000;
+    width: 120px;
+    background-color: rgb(231, 245, 240);
+    border-radius:8px;
+    padding:20px;
+    margin-left:0%;
+}
+
+#sub-condition_but{
+    margin-top: 10px;
+    border-style: none;
+    width: 80px;
+    height: 35px;
+    background-color: rgb(44, 216, 187);
+    color: white;
+    border-radius: 6px;
+}
 
 .wp-caption, .wp-caption-text, .sticky, .gallery-caption, .bypostauthor {
     opacity: 1;

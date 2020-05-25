@@ -12,6 +12,7 @@ const content_router = require('./routes/content.route.js');
 const path = require('path');
 var exphbs  = require('express-handlebars');
 var hbs = require('hbs');
+const {allowInsecurePrototypeAccess} = require('@handlebars/allow-prototype-access');
 const bodyParser = require('body-parser');
 
 const port = 5000;
@@ -32,7 +33,8 @@ app.engine("hbs", exphbs(
     {
         layoutsDir: "views/layouts", 
         defaultLayout: "main",
-        extname: "hbs"
+        extname: "hbs",
+        hbs: allowInsecurePrototypeAccess(hbs)
     }
 ));
 
