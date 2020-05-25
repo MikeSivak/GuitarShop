@@ -47,8 +47,11 @@
 
                             <div class="col-md-12 panelBottom">
                                 <div class="col-md-4 text-center">
-                                    <button class="btn btn-lg btn-add-to-cart"><span
+                                    <form action="">
+                                        <button class="btn btn-lg btn-add-to-cart"><span
                                             class="glyphicon glyphicon-shopping-cart"></span> Make an order</button>
+                                    </form>
+                                    
                                 </div>
                                 <div class="col-md-4 text-left">
                                     <h3>Price: <span class="itemPrice">${{this.price}}</span></h3>
@@ -67,6 +70,5 @@
     </div>
     {{/each}}
 
-    <script src="/js/content.item.js"></script>
     <script src="/js/descript.guitar.js"></script>
 </body>

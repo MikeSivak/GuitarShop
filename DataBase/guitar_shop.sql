@@ -6,7 +6,7 @@ create table roles
 	id int identity(1,1) primary key,
 	role_name nvarchar(20) not null
 );
-
+alter table users add foreign key (id_role) references roles(id);
 --(2) USERS TABLE
 create table users
 (
@@ -19,16 +19,16 @@ create table users
 	password nvarchar(50) not null
 );
 
+select * from roles;
+update roles set id = 2 where role_name = 'client';
 insert into roles(role_name)
 values('admin'),
-('manager'),
 ('client');
 
 insert into users(id_role, first_name, last_name, phone, email, password)
 values(1, 'Mike', 'Sivak', '+375297314004', 'noizemcnorm@gmail.com', '1999'),
 (2, 'Vasily', 'Pupkin', '+375334544823', 'vasya_pupchansky@gmail.com', '2222'),
-(3, 'Helena', 'Eremina', '+375335562244', 'len_ina@gmail.com', '3333');
-
+(2, 'Helena', 'Eremina', '+375335562244', 'len_ina@gmail.com', '3333');
 
 --COUTRIES TABLE
 create table countries
@@ -88,6 +88,8 @@ values
 (1, 'Parlor'),
 (1, 'Folk')
 
+delete from guitars;
+
 select guitar_body_type.title, guitar_type.title 
 from guitar_body_type
 join guitar_type
@@ -129,9 +131,13 @@ values
 ('SC-13E', 1899, 10, 1, 4),
 ('GPC-16E MAHOGANY', 2049, 5, 1, 4),
 ('D-18E 2020', 3649, 2, 1, 2),
-('AD 810', 150, 20, 4, 4)
+('AD 810', 150, 20, 4, 4),
+('AD 810', 150, 4, 4, 3),
+('AD 820', 399, 12, 4, 1),
+('AD 840', 250, 2, 4, 2),
+('AD 832', 140, 9, 4, 4);
 
-select manufacturers.title, model, guitar_body_type.title as 'body type', guitar_type.title as 'guitar type', countries.title, price, quantity
+select guitars.id, manufacturers.title, model, guitar_body_type.title as 'body type', guitar_type.title as 'guitar type', countries.title, price, quantity
 from guitars
 join manufacturers on manufacturers.id = guitars.id_manufacturer
 join guitar_body_type on guitar_body_type.id = guitars.id_body_type
@@ -139,3 +145,15 @@ join guitar_type on guitar_body_type.id_guitar_type = guitar_type.id
 join countries on manufacturers.id_country = countries.id;
 
 select * from guitars;
+
+create table orders
+(
+	id int identity(1,1) primary key,
+	id_user int not null,
+	id_guitar int not null,
+	order_date date not null,
+	order_status int not null
+);
+
+alter table orders add foreign key (id_user) references users(id);
+alter table orders add foreign key (id_guitar) references guitars(id);

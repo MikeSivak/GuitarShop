@@ -97,7 +97,7 @@ body{
     border-style: none;
     text-align:center;
     height:45px;
-    width: 240px;
+    width: 200px;
     border-radius:6px;
 }
 
@@ -106,7 +106,7 @@ body{
     border-style: none;
     text-align:center;
     height:45px;
-    width: 240px;
+    width: 200px;
     border-radius:6px;
 }
 
@@ -115,7 +115,7 @@ body{
     border-style: none;
     text-align:center;
     height:45px;
-    width: 240px;
+    width: 200px;
     border-radius:6px;
 }
 
@@ -124,7 +124,7 @@ body{
     border-style: none;
     text-align:center;
     height:45px;
-    width: 240px;
+    width: 200px;
     border-radius:6px;
 }
 
@@ -133,7 +133,7 @@ body{
     border-style: none;
     text-align:center;
     height:45px;
-    width: 240px;
+    width: 200px;
     border-radius:6px;
 }
 
@@ -142,7 +142,7 @@ body{
     border-style: none;
     text-align:center;
     height:45px;
-    width: 240px;
+    width: 200px;
     border-radius:6px;
 }
 
@@ -151,14 +151,14 @@ body{
     border-style: none;
     text-align:center;
     height:45px;
-    width: 240px;
+    width: 200px;
     border-radius:6px;
 }
 
 #delete_but{
     margin-top: 10px;
     border-style: none;
-    width: 120px;
+    width: 180px;
     height: 45px;
     background-color: rgb(158, 53, 14);
     color: white;
@@ -168,7 +168,7 @@ body{
 #save_but{
     margin-top: 10px;
     border-style: none;
-    width: 120px;
+    width: 180px;
     height: 45px;
     background-color: rgb(41, 70, 88);
     color: white;
@@ -178,7 +178,7 @@ body{
 #add_but{
     margin-top: 30px;
     border-style: none;
-    width: 120px;
+    width: 150px;
     height: 45px;
     background-color: rgb(41, 70, 88);
     color: white;
@@ -186,7 +186,7 @@ body{
 }
 
 #col-form-div1{
-    margin-left: -900px;
+    margin-left: -820px;
 }
 
 #col-form-div2{
@@ -195,16 +195,16 @@ body{
 }
 
 #col-form-div3{
-    margin-left: 100px;
+    margin-left: 20px;
     margin-top: -110px;
 }
 
 #col-form-div4{
-    margin-left: 600px;
+    margin-left: 440px;
     margin-top: -110px;
 }
 
 #col-form-div5{
-    margin-left: 1020px;
+    margin-left: 840px;
     margin-top: -55px;
 }

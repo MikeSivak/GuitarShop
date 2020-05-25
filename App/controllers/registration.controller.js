@@ -12,7 +12,7 @@ exports.registrateUsers = (req,res)=>{
     try{
         User
         .create({
-            id_role:3,
+            id_role:2,
             email:email,
             password:password,
             first_name:fname,

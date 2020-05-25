@@ -1,0 +1,16 @@
+<link rel="stylesheet" href="/css/search.css">
+
+<div class="container">
+    <input class="form-control" onkeyup="show()" id="listSearch" type="text"
+        placeholder="Type to search guitars">
+    <br>
+
+    <ul class="list-group" id="myList">
+        {{#each content}}
+        <li class="list-group-item"><a href="/content/{{this.id}}">{{'manufacturer.title'}} {{this.model}}</a></li>
+        {{/each}}
+    </ul>
+
+</div>
+
+<script src="/js/search.js"></script>
