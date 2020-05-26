@@ -63,7 +63,6 @@ router.post(
                     .status(400)
                     .json({errors: [{msg: 'Invalid Credentials'}]})
             }
-
             // compare passwords
             const isMatch = await bcrypt.compare(password, user.password)
 
@@ -91,12 +90,10 @@ router.post(
                     if (err) {
                         throw err
                     }
-                    // res.json({token})
-                    // res.cookie('id', payload.user.id);
-                    // res.cookie('id_role', payload.user.id_role);
-                    // res.redirect('/');
-                    // res.headers['x-auth-token'] = token;  
-                    res.cookie('x-auth-token', token).redirect('/'); 
+                    res.cookie('x-auth-token', token).render('home', {
+                        title: "Home",
+                        profile: user.email
+                    }); 
                 }
             )
         } catch (err) {

@@ -16,13 +16,13 @@
             <div class="collapse navbar-collapse" id="myNavbar">
                 <ul class="nav navbar-nav">
                     <li><a href="http://localhost:5000">Home</a></li>
-                    <li><a href="#">Guitars</a></li>
+                    <li><a href="/content">Guitars</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#">
-                        {{#each profile}}
-                            {{email}}
-                        {{/each}}
+                    <li><a id="profile" href="#">
+                        {{#if profile}}
+                            {{profile}}
+                        {{/if}}
                         </a>
                     </li>
                     <li><a href="http://localhost:5000/registration"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
