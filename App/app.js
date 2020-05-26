@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-
+// var expressValidator = require('express-validator');
+// app.use(expressValidator());
 const db = require("./models");
 db.sequelize.sync();
 
@@ -44,10 +45,7 @@ hbs.registerPartials(path.join(__dirname, '/views/partials'));
 
 app.use('/users', user_router);
 
-app.post('/login', login_router);
-app.get('/login', (req,res)=>{
-    res.render('login');
-});
+app.use('/login', login_router);
 
 app.get('/', (req,res)=>{
     res.render("home");
@@ -57,11 +55,9 @@ app.use('/guitars', guitar_router);
 
 app.use('/content', content_router);
 
-app.post('/registration', registration_router);
 
-app.get('/registration', (req,res)=>{
-    res.render("registration");
-});
+app.use('/registration', registration_router);
+
 
 
 app.use(function(req,res,next){

@@ -3,18 +3,24 @@ const User = db.users;
 const Op = db.Sequelize.Op;
 
 exports.loginUsers = (req,res)=>{
-    let email = req.body.email;
-    let password = req.body.password;
 
-    console.log('email: ' + email + ' -- password: ' + password);
-    try{
+    const email = req.body.email;
+    const password = req.body.password;
+
+    if (!email || !password || !fname || !lname || !phone) {
+        res.render('registration', {
+            title: 'Fill the all fields!'
+        });
+    }
+    else{
         User
         .findAll({where:{email:email,password:password}, raw: true })
-        .then(users=>{
-            res.redirect("http://localhost:5000"),
-            console.log('User: ' + users)
-        }
+        .then(
+            res.redirect("home"),
         );
+    }
+    try{
+        
     }
     catch(e){
         res.status(500).json({
