@@ -1,0 +1,33 @@
+<head>
+    <link rel="stylesheet" href="/css/orders.css" />
+</head>
+
+<body>
+    <div id="orders_view-div">
+        <h2 id="orders_view-title">Orders List</h2>
+        <div id='orders-form'>
+            <div id='orders-items-div'>
+                <ul>
+                    {{#each orders}}
+                    <li>
+                        <div id="order-item" class="{{this.id}}" type="button" name="order-item">
+                            <label id="lbl-info">({{this.id}}) {{'guitar.manufacturer.title'}}
+                                {{'guitar.model'}} ({{'user.first_name'}} {{'user.last_name'}} | {{'user.email'}}
+                                | {{'user.phone'}} )
+                            </label>
+                        </div>
+                        <form method="POST" id="sale-form">
+                            <input id="hidden-id-order" name="id" value="{{this.id}}" type="hidden">
+                            <input id="sale_but" type="submit" value="Sale" formaction="/orders/sale" />
+                        </form>
+                    </li>
+                    <br>
+                    <br>
+                    {{/each}}
+                </ul>
+            </div>
+
+            <br>
+        </div>
+    </div>
+</body>

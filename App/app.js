@@ -9,6 +9,7 @@ const user_router = require('./routes/user.route.js');
 const registration_router = require('./routes/registration.route.js');
 const guitar_router = require('./routes/guitar.route.js');
 const content_router = require('./routes/content.route.js');
+const order_router = require('./routes/order.route.js');
 const path = require('path');
 var exphbs  = require('express-handlebars');
 var hbs = require('hbs');
@@ -75,6 +76,14 @@ app.use('/registration', registration_router);
 
 app.use('/auth', require('./routes/auth.route'));
 
+app.use('/orders', auth, (req,res, next)=>{
+    if(req.user.id_role == 1){
+        next();
+    }
+    else{
+        res.redirect('/');
+    }
+}, order_router);
 
 app.use(function(req,res,next){
     res.status(404).send("Not Found");
