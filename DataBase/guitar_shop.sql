@@ -19,6 +19,8 @@ create table users
 	password nvarchar(50) not null
 );
 
+alter table users alter column password nvarchar(max);
+select * from users;
 select * from roles;
 update roles set id = 2 where role_name = 'client';
 insert into roles(role_name)
