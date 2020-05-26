@@ -18,7 +18,8 @@ create table users
 	email nvarchar(50) not null,
 	password nvarchar(50) not null
 );
-
+--update users set password = '$2a$10$trqZxQ5Bym/KXQEqxaROQudxAGlVF0s5TJ73lwwo.QgQ53JjXfjv.';
+delete from users where id != 1;
 alter table users alter column password nvarchar(max);
 select * from users;
 select * from roles;
@@ -154,8 +155,7 @@ create table orders
 	id_user int not null,
 	id_guitar int not null,
 	order_date date not null,
-	order_status int not null
 );
-
+drop table orders;
 alter table orders add foreign key (id_user) references users(id);
 alter table orders add foreign key (id_guitar) references guitars(id);

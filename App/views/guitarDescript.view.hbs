@@ -47,7 +47,8 @@
 
                             <div class="col-md-12 panelBottom">
                                 <div class="col-md-4 text-center">
-                                    <form action="">
+                                    <form method="POST" action="/content/buy">
+                                        <input id="hidden-field" name="id" type="hidden" value="{{this.id}}">
                                         <button class="btn btn-lg btn-add-to-cart"><span
                                             class="glyphicon glyphicon-shopping-cart"></span> Make an order</button>
                                     </form>

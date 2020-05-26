@@ -5,6 +5,8 @@ const Country = db.countries;
 const Guitar_Body_Type = db.guitar_body_types;
 const Guitar_Type = db.guitar_types;
 const Manufacturer = db.manufacturers;
+const Order = db.orders;
+const User = db.users;
 const Op = db.Sequelize.Op;
 
 Country.hasOne(Manufacturer, {
@@ -38,6 +40,49 @@ Guitar_Body_Type.hasOne(Guitar, {
 Guitar.belongsTo(Guitar_Body_Type, {
     foreignKey: 'id_body_type'
 });
+
+User.hasMany(Order, {
+    foreignKey: 'id_user',
+    sourceKey: 'id'
+});
+Order.belongsTo(User, {
+    foreignKey: 'id_user'
+});
+
+Guitar.hasMany(Order, {
+    foreignKey: 'id_guitar',
+    sourceKey: 'id'
+});
+Order.belongsTo(Guitar, {
+    foreignKey: 'id_guitar'
+});
+
+exports.buyGuitar = async (req,res)=>{
+    
+    // console.log('guitar id: ' + req.body.id);
+    // console.log('User id: ' + req.user.id);
+    // console.log('User id_role: ' + req.user.id_role);
+    const id_guitar = req.body.id;
+    const id_user = req.user.id;
+    const date = new Date();
+
+    try{
+        await Order
+            .create({
+                id_user: id_user,
+                id_guitar: id_guitar,
+                order_date: date
+            })
+            .then(
+                res.json('GUITAR BOUGHT =)')
+            );
+    }
+    catch(e){
+        res.status(500).json({
+            message: 'Something went wrong, try again: ' + e.message
+        })
+    }
+}
 
 exports.getContent = async (req, res) => {
 

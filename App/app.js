@@ -1,22 +1,11 @@
 const express = require('express');
 const app = express();
-// var expressValidator = require('express-validator');
-// app.use(expressValidator());
 const db = require("./models");
 db.sequelize.sync();
-const auth = require('./middleware/auth')
-// app.use(express.cookieParser());
-// app.use(express.bodyParser());
-// app.use(express.session({ secret: 'SECRET' }));
-// const passport = require('./middleware/passport');
-
-// app.use(passport.initialize());
-// app.use(passport.session());
-
+const auth = require('./middleware/auth');
 
 
 const user_router = require('./routes/user.route.js');
-const login_router = require('./routes/login.route.js');
 const registration_router = require('./routes/registration.route.js');
 const guitar_router = require('./routes/guitar.route.js');
 const content_router = require('./routes/content.route.js');
@@ -53,9 +42,18 @@ app.use(express.static('public'));
 
 hbs.registerPartials(path.join(__dirname, '/views/partials'));
 
-app.use('/users', user_router);
+app.use('/users', auth, (req,res, next)=>{
+    if(req.user.id_role == 1){
+        next();
+    }
+    else{
+        res.redirect('/');
+    }
+}, user_router);
 
-app.use('/login', login_router);
+app.get('/login', (req, res) => {
+    res.render('login');
+});
 
 app.get('/', (req,res)=>{
     res.render("home");
