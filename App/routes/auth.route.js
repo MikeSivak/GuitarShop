@@ -90,10 +90,17 @@ router.post(
                     if (err) {
                         throw err
                     }
-                    res.cookie('x-auth-token', token).render('home', {
-                        title: "Home",
-                        profile: user.email
-                    }); 
+                    // res.cookie('x-auth-token', token).render('home', {
+                    //     title: "Home",
+                    //     profile: user.email
+                    // }); 
+                    res.cookie('x-auth-token', token);
+                    if(user.id_role == 1){
+                        res.redirect('/users');
+                    }
+                    else{
+                        res.redirect('/');
+                    }
                 }
             )
         } catch (err) {

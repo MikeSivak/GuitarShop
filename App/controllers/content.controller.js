@@ -57,8 +57,8 @@ Order.belongsTo(Guitar, {
     foreignKey: 'id_guitar'
 });
 
-exports.buyGuitar = async (req,res)=>{
-    
+exports.buyGuitar = async (req, res) => {
+
     // console.log('guitar id: ' + req.body.id);
     // console.log('User id: ' + req.user.id);
     // console.log('User id_role: ' + req.user.id_role);
@@ -66,7 +66,7 @@ exports.buyGuitar = async (req,res)=>{
     const id_user = req.user.id;
     const date = new Date();
 
-    try{
+    try {
         await Order
             .create({
                 id_user: id_user,
@@ -74,10 +74,11 @@ exports.buyGuitar = async (req,res)=>{
                 order_date: date
             })
             .then(
-                res.json('GUITAR BOUGHT =)')
+                // res.json('GUITAR BOUGHT =)')
+                res.render('buySuccess.view.hbs')
             );
     }
-    catch(e){
+    catch (e) {
         res.status(500).json({
             message: 'Something went wrong, try again: ' + e.message
         })
@@ -117,26 +118,31 @@ exports.getContent = async (req, res) => {
 exports.getGuitarsByCondition = async (req, res) => {
 
     console.log('get value checkbox: ' + req.body.Martin);
-
+    console.log('get value radio button: ' + req.body.price_interval);
     // console.log('get value radio: ' + req.body.price_interval_1);
+
+    const price_interval = req.body.price_interval;
 
     const manufacturers = await Manufacturer
         .findAll({ raw: true });
 
-    let checked_manuf = manufacturers.filter(m => {
+    const checked_manuf = manufacturers.filter(m => {
         return req.body[m.title] !== undefined;
     })
-    console.log("eeeeeeeeeeeeee:" + checked_manuf.map(el=>el.id));
+    console.log("eeeeeeeeeeeeee:" + checked_manuf.map(el => el.id));
 
     try {
         await Guitar
             .findAll({
                 where: {
                     id_manufacturer: {
-                        [Op.or]: checked_manuf.map(el => el.id)
+                        [Op.or]: checked_manuf.map(el => el.id),
+                    },
+                    price: {
+                        [Op.lt]: price_interval
                     }
                 }
-            },{
+            }, {
                 include: [
                     { model: Guitar_Body_Type, include: Guitar_Type },
                     { model: Manufacturer, include: Country }

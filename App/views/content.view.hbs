@@ -36,23 +36,26 @@
     {{>search}}
     <div id="check-list">
         <div class="custom-control custom-checkbox">
-            <form method="POST" action="/content/sort">
+            <form method="POST" action="/content/">
                 {{#each manufacturers}}
                     <input type="checkbox" class="custom-control-input" id="{{this.id}}" name="{{this.title}}">
                     <label class="custom-control-label" for="defaultUnchecked">{{this.title}}</label>
                     <br>
                 {{/each}}
                 <br>
-                <input type="radio" class="custom-control-input" id="price-interval-1" name="price_interval">
+                <input type="radio" class="custom-control-input" id="price-interval-1" value="200" name="price_interval">
+                <label class="custom-control-label" for="defaultUnchecked">&#60; 200</label>
+                    <br>
+                <input type="radio" class="custom-control-input" id="price-interval-2" value="500" name="price_interval">
                 <label class="custom-control-label" for="defaultUnchecked">&#60; 500</label>
                     <br>
-                <input type="radio" class="custom-control-input" id="price-interval-2" name="price_interval">
+                <input type="radio" class="custom-control-input" id="price-interval-3" value="1000" name="price_interval">
                 <label class="custom-control-label" for="defaultUnchecked">&#60; 1000</label>
                     <br>
-                <input type="radio" class="custom-control-input" id="price-interval-3" name="price_interval">
+                <input type="radio" class="custom-control-input" id="price-interval-4" value="2000" name="price_interval">
                 <label class="custom-control-label" for="defaultUnchecked">&#60; 2000</label>
                     <br>
-                <input type="radio" class="custom-control-input" id="price-interval-4" name="price_interval">
+                <input type="radio" class="custom-control-input" id="price-interval-5" value="3000" name="price_interval">
                 <label class="custom-control-label" for="defaultUnchecked">&#60; 3000</label>
                     
                 <input id="sub-condition_but" type="submit" value="SEARCH">
