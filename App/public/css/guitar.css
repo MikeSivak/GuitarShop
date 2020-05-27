@@ -86,7 +86,7 @@ body{
     padding-top: 10px;
     width: 100%;
     margin-left:-25px;
-    height: 140px;
+    height: 300px;
     border-radius: 6px;
     background-color: rgb(233, 233, 233);
     margin-bottom: 30px;
@@ -185,6 +185,53 @@ body{
     border-radius: 6px;
 }
 
+#descript{
+    margin-top: 20px;
+    border-style: none;
+    /* text-align:center; */
+    height:140px;
+    width: 620px;
+    border-radius:6px;
+    /* text-align: start; */
+}
+
+#load_pic{
+    margin-top: -20px;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  .custom-file-input::before {
+    content: 'Select image';
+    text-align: center;
+    display: inline-block;
+    background: darkcyan;
+    border: none;
+    border-radius: 3px;
+    padding: 12px 8px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    /* text-shadow: 1px 1px #fff; */
+    /* font-weight: 700; */
+    width: 120px;
+    height: 45px;
+    font-size: 10pt;
+  }
+  .custom-file-input:hover::before {
+    border-color: black;
+  }
+  .custom-file-input:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+  }
+  .custom-file-input{
+    color:black;
+    margin-left: 20px;
+    margin-top: 20px;
+  }
+
 #col-form-div1{
     margin-left: -820px;
 }
@@ -206,5 +253,14 @@ body{
 
 #col-form-div5{
     margin-left: 840px;
+    margin-top: -55px;
+}
+
+#col-form-div6{
+    margin-left: -400px;
+}
+
+#col-form-div7{
+    margin-left: 650px;
     margin-top: -55px;
 }

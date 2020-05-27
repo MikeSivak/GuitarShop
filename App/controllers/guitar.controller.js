@@ -69,6 +69,8 @@ exports.addGuitar = async (req, res) => {
     let gbody_type = req.body.gbody;
     let price = req.body.price;
     let quantity = req.body.quantity;
+    let descript = req.body.descript;
+    let load_pic = req.body.load_pic;
 
     const manufacturer = await Manufacturer
         .findOne({ where: { title: manuf }, raw: true })
@@ -85,7 +87,9 @@ exports.addGuitar = async (req, res) => {
                 price: price,
                 quantity: quantity,
                 id_manufacturer: id_manuf,
-                id_body_type: id_gbody
+                id_body_type: id_gbody,
+                descript: descript,
+                picture_path: load_pic
             })
             .then(
                 res.redirect("http://localhost:5000/guitars")
@@ -105,6 +109,11 @@ exports.saveGuitars = async (req, res) => {
     let price = req.body.price;
     let quantity = req.body.quantity;
     let id = req.body.id;
+    let descript = req.body.descript;
+    let load_pic = req.body.load_pic;
+
+    console.log('descript: ' + descript);
+    console.log('load_pic: ' + load_pic);
 
     let id_manuf = "";
     let id_gbody_type = "";
@@ -123,7 +132,9 @@ exports.saveGuitars = async (req, res) => {
                 price: price,
                 quantity: quantity,
                 id_manufacturer: id_manuf,
-                id_body_type: id_gbody_type
+                id_body_type: id_gbody_type,
+                descript: descript,
+                picture_path: load_pic
             },
                 {
                     where: {

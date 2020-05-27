@@ -8,7 +8,7 @@
     padding-top:30px;
     background-color: rgb(20, 33, 41);
     width:400px;
-    height:500px;
+    height:670px;
 }
 
 #action-label{
@@ -67,9 +67,57 @@
     border-style:none;
     width:80px;
     height:30px;
-    margin-top:10px;
+    margin-top:20px;
     background-color:darkcyan;
     border-radius:8px;
-    margin-top: 60px;
+    margin-top: 30px;
     color: black;
 }
+
+#descript{
+    margin-top: 20px;
+    border-style: none;
+    /* text-align:center; */
+    height:140px;
+    width: 200px;
+    border-radius:6px;
+    /* text-align: start; */
+}
+
+#load_pic{
+    margin-top: 30px;
+    border-style: none;
+    border-radius: 6px;
+    color: white;
+    margin-left: 20%;
+}
+
+.custom-file-input::-webkit-file-upload-button {
+    visibility: hidden;
+  }
+  .custom-file-input::before {
+    content: 'Select image';
+    display: inline-block;
+    background: darkcyan;
+    border: none;
+    border-radius: 3px;
+    padding: 5px 8px;
+    outline: none;
+    white-space: nowrap;
+    -webkit-user-select: none;
+    cursor: pointer;
+    /* text-shadow: 1px 1px #fff; */
+    /* font-weight: 700; */
+    font-size: 10pt;
+  }
+  .custom-file-input:hover::before {
+    border-color: black;
+  }
+  .custom-file-input:active::before {
+    background: -webkit-linear-gradient(top, #e3e3e3, #f9f9f9);
+  }
+  .custom-file-input{
+    color:white;
+    margin-left: 20px;
+    margin-top: 20px;
+  }

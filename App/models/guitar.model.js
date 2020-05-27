@@ -40,6 +40,16 @@ module.exports = (sequelize, Sequelize) => {
             references: Guitar_Body_Type,
             referencesKey: 'id',
             field: 'id_body_type'
+        },
+        descript: {
+            type: Sequelize.STRING,
+            allowNull: false,
+            field: 'descript'
+        },
+        picture_path: {
+            type: Sequelize.STRING,
+            allowNull: false,
+            field: 'picture_path'
         }
     },{
         modelName: 'Guitar',

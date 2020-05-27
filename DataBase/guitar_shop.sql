@@ -123,6 +123,12 @@ create table guitars
 	id_body_type int not null,
 	--id_type int not null
 );
+
+alter table guitars add descript nvarchar(max), picture_path nvarchar(max);
+select * from guitars;
+update guitars set descript = 'The best guitar for start to learning music. This guitar has a good quality and beautifull sound! The best choice for you!';
+update guitars set picture_path = ''
+
 drop table guitars;
 update guitars set id_manufacturer = 1 where id = 5;
 alter table guitars add foreign key (id_manufacturer) references manufacturers(id) on update cascade on delete cascade;
@@ -156,6 +162,6 @@ create table orders
 	id_guitar int not null,
 	order_date date not null,
 );
-drop table orders;
+select * from orders;
 alter table orders add foreign key (id_user) references users(id);
 alter table orders add foreign key (id_guitar) references guitars(id);
