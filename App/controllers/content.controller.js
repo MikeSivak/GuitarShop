@@ -121,7 +121,7 @@ exports.getGuitarsByCondition = async (req, res) => {
     console.log('get value radio button: ' + req.body.price_interval);
     // console.log('get value radio: ' + req.body.price_interval_1);
 
-    const price_interval = req.body.price_interval;
+    const price_interval = req.body.price_interval || 100000;
 
     const manufacturers = await Manufacturer
         .findAll({ raw: true });
@@ -141,22 +141,21 @@ exports.getGuitarsByCondition = async (req, res) => {
                     price: {
                         [Op.lt]: price_interval
                     }
-                }
-            }, {
+                },
                 include: [
                     { model: Guitar_Body_Type, include: Guitar_Type },
                     { model: Manufacturer, include: Country }
                 ],
-                raw: true,
-                // nest: true
-            },
-            ).then(content => {
+                raw: true
+            }
+            )
+            .then(content => {
                 res.render('content.view.hbs', {
                     title: 'Guitars',
                     content: content,
                     manufacturers: manufacturers
                 });
-                console.log(content);
+                console.log("Content: " + content);
                 console.log(manufacturers);
             })
     } catch (e) {

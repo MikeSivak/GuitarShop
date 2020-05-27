@@ -127,7 +127,15 @@ create table guitars
 alter table guitars add descript nvarchar(max), picture_path nvarchar(max);
 select * from guitars;
 update guitars set descript = 'The best guitar for start to learning music. This guitar has a good quality and beautifull sound! The best choice for you!';
-update guitars set picture_path = ''
+update guitars set picture_path = 'guitar2.jpg' where id = 15;
+update guitars set picture_path = 'guitar3.jpg' where id = 16;
+update guitars set picture_path = 'guitar4.jpg' where id = 17;
+update guitars set picture_path = 'guitar5.jpg' where id = 18;
+update guitars set picture_path = 'guitar6.jpg' where id = 19;
+update guitars set picture_path = 'guitar7.jpg' where id = 20;
+update guitars set picture_path = 'guitar8.jpg' where id = 21;
+update guitars set picture_path = 'guitar9.jpg' where id = 22;
+update guitars set picture_path = 'guitar10.jpg' where id = 23;
 
 drop table guitars;
 update guitars set id_manufacturer = 1 where id = 5;
