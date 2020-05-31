@@ -129,7 +129,6 @@ exports.getGuitarsByCondition = async (req, res) => {
     const checked_manuf = manufacturers.filter(m => {
         return req.body[m.title] !== undefined;
     })
-    console.log("eeeeeeeeeeeeee:" + checked_manuf.map(el => el.id));
 
     try {
         await Guitar
